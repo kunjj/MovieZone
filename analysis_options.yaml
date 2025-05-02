@@ -1,0 +1,34 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude: [ build/** ]
+  errors:
+    unused_element: error
+    prefer_relative_imports: error
+    dead_code: error
+    invalid_assignment: error
+    prefer_single_quotes: error
+    missing_closing_parenthesis: error
+    unused_import: error
+    unused_local_variable: error
+    unchecked_use_of_nullable_value: error
+    unnecessary_breaks: error
+    const_not_initialized: error
+    assignment_to_const: error
+    unnecessary_parenthesis: error
+    illegal_pattern_variable_name: error
+    camel_case_types: ignore
+    sort_child_properties_last: error
+    prefer_const_constructors: error
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    prefer_relative_imports: true
+    unnecessary_brace_in_string_interps: true
+    unnecessary_breaks: true
+    unnecessary_null_aware_operator_on_extension_on_nullable: true
+    unnecessary_parenthesis: true
+    unnecessary_null_checks: true
+    camel_case_types: false
+    prefer_const_constructors: true

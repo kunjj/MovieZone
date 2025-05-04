@@ -11,32 +11,32 @@ on:
   workflow_dispatch:  # enables manual runs.
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  CI:
+      runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.24.5'
-          channel: 'stable'
+      steps:
+        - uses: actions/checkout@v4
+        - uses: subosito/flutter-action@v2
+          with:
+            flutter-version: '3.24.5'
+            channel: 'stable'
 
-      - name: Install dependencies
-        run: dart pub get
+        - name: Install dependencies
+          run: dart pub get
 
-      #- name: Analyze project source
-      #  run: dart analyze
+        #- name: Analyze project source
+        #  run: dart analyze
 
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze --fatal-infos
+        # Consider passing '--fatal-infos' for slightly stricter analysis.
+        - name: Analyze project source
+          run: dart analyze --fatal-infos
 
-      # - name: Run tests
-      #   run: dart test
+        # - name: Run tests
+        #   run: dart test
 
-      #- name: Build APK
-      #  run: flutter build apk
-      #- uses: actions/upload-artifact@v4
-      #  with:
-      #    name: app-build
-      #    path: build/app/outputs/flutter-apk/
+        #- name: Build APK
+        #  run: flutter build apk
+        #- uses: actions/upload-artifact@v4
+        #  with:
+        #    name: app-build
+        #    path: build/app/outputs/flutter-apk/

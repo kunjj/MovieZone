@@ -3,13 +3,13 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude: [ build/** ]
   errors:
-    unused_element: error
+    unused_element: warning
     prefer_relative_imports: error
-    dead_code: error
+    dead_code: warning
     invalid_assignment: error
     prefer_single_quotes: error
     missing_closing_parenthesis: error
-    unused_import: error
+    unused_import: warning
     unused_local_variable: error
     unchecked_use_of_nullable_value: error
     unnecessary_breaks: error

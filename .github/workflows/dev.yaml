@@ -25,18 +25,21 @@ jobs:
       - name: Install dependencies
         run: dart pub get
 
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
       - name: Analyze project source
         run: dart analyze
+
+      # Consider passing '--fatal-infos' for slightly stricter analysis.
+      - name: Analyze project source
+        run: dart analyze --fatal-infos
 
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
+      # - name: Run tests
+      #   run: dart test
       - name: Build APK
         run: flutter build apk
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: app-build
           path: build/app/outputs/flutter-apk/

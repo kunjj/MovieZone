@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ dev ] # Runs when a PR targeting dev is opened, updated, or reopened
+    paths: # to limit what changes trigger builds.
+      - 'lib/**'
+      - 'pubspec.yaml'
+  push:
+    branches: [ dev ]  # Runs after code is merged into dev.
+  workflow_dispatch:  # enables manual runs.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: dart pub get
+
+      #- name: Analyze project source
+      #  run: dart analyze
+
+      # Consider passing '--fatal-infos' for slightly stricter analysis.
+      - name: Analyze project source
+        run: dart analyze --fatal-infos
+
+      # - name: Run tests
+      #   run: dart test
+
+      #- name: Build APK
+      #  run: flutter build apk
+      #- uses: actions/upload-artifact@v4
+      #  with:
+      #    name: app-build
+      #    path: build/app/outputs/flutter-apk/

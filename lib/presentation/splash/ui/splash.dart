@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/configs/navigation/app_navigator.dart';
+import '../../../core/utils/constants.dart';
 import '../../../core/utils/images.dart';
-import '../../bloc/splash_cubit.dart';
-import '../../bloc/splash_state.dart';
-import '../home/home_screen.dart';
-import '../signin/signin_screen.dart';
+import '../../../core/utils/routes.dart';
+import '../../auth/ui/signin_screen.dart';
+import '../../home/ui/home_screen.dart';
+import '../bloc/splash_cubit.dart';
+import '../bloc/splash_state.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,9 +25,11 @@ class _SplashScreen extends State<SplashScreen> {
             listener: (context, state) {
               switch (state) {
                 case Authenticated():
-                  AppNavigator.pushAndRemoveUntil(context, const HomeScreen());
+                  navigatorKey.currentContext?.pushAndRemoveUntil(
+                      builder: (context) => const HomeScreen(), settings: const RouteSettings(name: AppRoutes.homeScreen));
                 case UnAuthenticated():
-                  AppNavigator.pushAndRemoveUntil(context, const SignInScreen());
+                  navigatorKey.currentContext?.pushAndRemoveUntil(
+                      builder: (context) => const SignInScreen(), settings: const RouteSettings(name: AppRoutes.signInScreen));
               }
             },
             child: const _ScreenContent()));

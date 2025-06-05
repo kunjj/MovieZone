@@ -452,5 +452,6 @@ fabric.properties
 *.g.dart
 *.mocks.dart
 *.lock
+*.config.dart
 
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio,android,xcode,swift,objective-c,dart,flutter

@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,16 +9,23 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/configs/themes/app_themes.dart';
 import 'core/utils/constants.dart';
+import 'core/utils/logging.dart';
+import 'injector/injector.dart';
 import 'l10n/l10n.dart';
-import 'presentation/bloc/splash_cubit.dart';
-import 'presentation/ui/splash/splash.dart';
+import 'presentation/splash/bloc/splash_cubit.dart';
+import 'presentation/splash/ui/splash.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  runZonedGuarded(() {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
-  WidgetsFlutterBinding.ensureInitialized();
+    WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MyApp());
+    injectorSetUp();
+    runApp(const MyApp());
+  }, (error, stackTrace) {
+    if (kDebugMode) printLog(message: 'Error: $error \n StackTrace: $stackTrace');
+  });
 }
 
 class MyApp extends StatelessWidget {

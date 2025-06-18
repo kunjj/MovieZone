@@ -165,7 +165,6 @@ output.json
 .fvm/
 coverage/
 
-
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
@@ -279,10 +278,6 @@ iOSInjectionProject/
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 
-
-
-
-
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
@@ -331,9 +326,6 @@ Dependencies/
 ### Xcode ###
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
-
-
 
 ## Gcc Patch
 /*.gcno
@@ -460,6 +452,8 @@ fabric.properties
 *.g.dart
 *.mocks.dart
 *.lock
+*.config.dart
+*.http
+*.env.json
 
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio,android,xcode,swift,objective-c,dart,flutter
-.vscode/launch.json

@@ -6,25 +6,54 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.4
+  sdk: '>=3.2.1 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: 1.0.8
   flutter_bloc:
-  dio:
+  dio: 5.8.0+1
   get_it:
   shared_preferences:
   reactive_button: 0.0.9
-
+  gap: 3.0.1
+  flutter_svg: ^2.1.0
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.19.0
+  flutter_styled_toast: any
+  flutter_native_splash: ^2.4.4
+  logger: 2.5.0
+  dartz: 0.10.1
+  injectable:
+  built_value:
+  rxdart: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: 5.0.0
+  build_runner: any
+  injectable_generator:
+  built_value_generator:
+
+flutter_native_splash:
+  color: "#1A1B20"
+  image: assets/images/splash_bg.png
+  android: true
+  ios: true
+  fullscreen: true
+  android_gravity: fill
+
+  android_12:
+    image: assets/images/splash_bg.png
+    image_dark: assets/images/splash_bg.png
+    fullscreen: true
+    android_gravity: fill
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/images/

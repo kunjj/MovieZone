@@ -5,7 +5,7 @@ import '../../../domain/auth/repositories/auth/auth_repositories.dart';
 import '../models/signup_req_params.dart';
 import '../sources/auth_api.dart';
 
-@lazySingleton
+@Injectable(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._authApi);
 
